@@ -29,12 +29,12 @@ for page_num, pil_img in enumerate(images):
     crops = remove_small_crops(img, crops)
     crops = merge_overlapping_crops(crops)
     
-    # Save each cropped image
+    # Saves each cropped image
     for i, crop in enumerate(crops):
         cropped_image = img[crop.y:crop.z, crop.x:crop.w, :]
         output_path = os.path.join(output_folder, f"page_{page_num+1}_crop_{i+1}.jpg")
         cv2.imwrite(output_path, cropped_image)
-        print(f"✅ Saved: {output_path}")
+        print(f"Saved: {output_path}")
         
         # Display the cropped image
         #plt.imshow(cv2.cvtColor(cropped_image, cv2.COLOR_BGR2RGB))
